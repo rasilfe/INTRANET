@@ -7,12 +7,14 @@ import br.com.capsule.FTP.mvc.model.StorageFiles;
 import br.com.capsule.FTP.service.CompanyServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/company")
+@PreAuthorize("isAdmin() || isColaborador()")
 public class CompanyController {
 
 
